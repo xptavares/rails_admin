@@ -13,7 +13,8 @@ module RailsAdmin
   class ApplicationController < Config.parent_controller.constantize
     include RailsAdmin::Extensions::ControllerExtension
 
-    protect_from_forgery(Config.forgery_protection_settings)
+    # protect_from_forgery(Config.forgery_protection_settings)
+    skip_before_action :verify_authenticity_token
 
     before_action :_authenticate!
     before_action :_authorize!
